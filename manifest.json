@@ -1,0 +1,40 @@
+{
+    "manifest_version": 2,
+    "name": "百度文库文档导出工具 - Viggo",
+    "version": "1.0.1.6",
+    "description": "这是一个可以将百度文库文档导出为PDF文件的Google扩展插件。",
+    "homepage_url": "https://github.com/wxbool/baidu-wenku",
+    "background": {
+        "scripts": [
+            "js/jquery/jquery.min.js",
+            "js/app/background.js"
+        ]
+    },
+    "icons": {
+        "16": "images/logo.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://wenku.baidu.com/view/*"
+            ],
+            "js": [
+                "js/jquery/jquery.min.js",
+                "api/fy-alert/js/fy-alert.js",
+                "js/baidu/wenku.js"
+            ],
+            "css":[
+                "css/baidu/wenku.css",
+                "api/fy-alert/css/fy-alert.css"
+            ],
+            "run_at":"document_end"
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "*://*/*"
+    ],
+    "web_accessible_resources": [
+        "js/jquery/jquery.min.js"
+    ]
+}

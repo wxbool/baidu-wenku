@@ -1,0 +1,87 @@
+#myzoom_12138 {
+    border: 1px solid #eceaec;
+    border-radius: 5px;
+    position: fixed;
+    top: 100px;
+    right: 0px;
+    z-index: 1000000000000;
+    background: #ffffff;
+    width: 200px;
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 3px #929191;
+}
+
+#myzoom_12138 ._title {
+    text-align: center;
+    padding: 10px 0;
+}
+
+#myzoom_12138 ._form {
+    padding: 10px 10px;
+}
+
+#myzoom_12138 ._btn {
+    text-align: center;
+    padding: 10px 10px;
+}
+
+#myzoom_12138 ._collectAccount {
+
+}
+
+
+
+
+#myzoom_12138 input {
+    margin-bottom: 8px;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+#myzoom_12138 .btn-default{
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+#myzoom_12138 .btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+#myzoom_12138 button{
+    isplay: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}

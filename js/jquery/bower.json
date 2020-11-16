@@ -1,0 +1,19 @@
+{
+  "name": "jquery",
+  "main": "jquery.js",
+  "version": "1.9.1",
+  "description": "jquery",
+  "keywords": [
+    "jquery"
+  ],
+  "license": "MIT",
+  "homepage": "http://10.104.100.6/mmc_comb/jquery",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./",
+    "test",
+    "tests"
+  ]
+}
