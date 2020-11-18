@@ -94,6 +94,7 @@ class PageScript {
                             $("#app .content-wrapper .reader-wrap .fold-page-content").remove();
                             $("#app .content-wrapper .reader-wrap .try-end-fold-page").remove();
                             $("#app .content-wrapper .reader-wrap .copyright-wrap").remove();
+                            $("#app .content-wrapper .hx-warp").remove(); //删除广告
                             $("#app .bottom-pop-wrap").remove();
                             $("#app .footer-wrapper").remove();
                             $("#app .sidebar-wrapper").remove();
