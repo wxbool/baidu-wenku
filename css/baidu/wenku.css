@@ -1,3 +1,5 @@
+@media print{body{display:block !important;}}
+
 #myzoom_12138 {
     border: 1px solid #eceaec;
     border-radius: 5px;

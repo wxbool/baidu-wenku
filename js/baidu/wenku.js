@@ -24,8 +24,9 @@ class PageScript {
 
             function findDocumentAll (finishCallback) {
                 $("#app .content-wrapper .reader-wrap .fold-page-content .read-all").click();
+                let hide = $("#app .content-wrapper .reader-wrap .fold-page-content .read-all").is(':visible');
 
-                if ($("#app .content-wrapper .reader-wrap .fold-page-content .read-all").length > 0) {
+                if (!hide && $("#app .content-wrapper .reader-wrap .fold-page-content .read-all").length > 0) {
                     console.log("继续展开文档！");
                     setTimeout(function () {
                         findDocumentAll(finishCallback);
@@ -35,6 +36,7 @@ class PageScript {
                 }
             }
 
+            let totalIndex = 0;
             let lastOffsetTop = 0;
             let lastIndex = 0;
             let queue = [];
@@ -46,6 +48,9 @@ class PageScript {
                 }
 
                 let obj = queue[0];
+                //清理内部文档
+                $(`#reader-container .__wm${obj.index-1}`).remove();
+                // $(`#reader-container .__wm${obj.index}`).remove();
                 //校验渲染
                 if (obj && $(obj.ele).find("> .loading-page").length > 0) {
                     //渲染
@@ -76,12 +81,14 @@ class PageScript {
                 } , 500);
             }
 
+
             setTimeout(function () {
                 //尝试展开全部
                 findDocumentAll(function () {
                     //查询页面列表
                     $("#reader-container div[data-page-no]").each(function (index , e) {
                         queue.push({ele:e , index:(index+1)});
+                        totalIndex++;
                     });
                     //渲染页面
                     showDocumentPage(queue , function () {
@@ -95,20 +102,44 @@ class PageScript {
                             $("#app .content-wrapper .reader-wrap .try-end-fold-page").remove();
                             $("#app .content-wrapper .reader-wrap .copyright-wrap").remove();
                             $("#app .content-wrapper .hx-warp").remove(); //删除广告
+                            $("#app .top-theme-tips-wrap").remove(); //删除广告
                             $("#app .bottom-pop-wrap").remove();
                             $("#app .footer-wrapper").remove();
                             $("#app .sidebar-wrapper").remove();
                             $("#app #page-footer").remove();
 
+                            //清理内部文档
+                            // $("#reader-container .reader-pic-item").remove();
+
                             //css
                             setTimeout(function () {
                                 $("#app").css({background:"#fff"});
+                                $("#app").removeClass("niunianxianding");
                                 $("#app .content-wrapper .left-wrapper .reader-topbar").css({display:"none"});
+
+                                // let pageHtmls = [];
+                                // //遍历另存为页面
+                                // $("#reader-container div[data-page-no]").each(function (index , e) {
+                                //     let p = $(e).find(".reader-txt-layer .ie-fix").html();
+                                //     pageHtmls.push(p);
+                                //     // $(e).html("");
+                                // });
+                                // //移除整个文档
+                                // $("#app .content-wrapper .left-wrapper #reader-container").html("");
+                                // console.log(pageHtmls.join(""));
+                                // //重新输出文档
+                                // $("#app .content-wrapper .left-wrapper #reader-container").html(pageHtmls.join(""));
+
+                                //同步宽度
+                                setTimeout(function () {
+                                    let docWidth = $("#app .content-wrapper .left-wrapper").width();
+                                    $("#app .content-wrapper").css({width:docWidth});
+                                } , 200)
+
+                                fyAlert.msg("渲染成功，清理操作完成！" , {icon:0,animateType:1,time:1500});
+                                $this.clear = true;
                             } , 500);
                         } , 1000);
-
-                        fyAlert.msg("渲染成功，清理操作完成！" , {icon:0,animateType:1,time:1500});
-                        $this.clear = true;
                     });
                 });
             } , 500);
